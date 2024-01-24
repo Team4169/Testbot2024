@@ -1,18 +1,11 @@
 #!/usr/bin/env python3
 import typing
 import wpilib
-from wpimath.geometry import Rotation2d 
 import commands2
-import ctre
-import math
 import constants
 from robotcontainer import RobotContainer
 from deadzone import addDeadzone
 import ntcore
-import robotpy_apriltag
-import time
-import numpy
-
 
 class MyRobot(commands2.TimedCommandRobot):
     """
@@ -42,12 +35,7 @@ class MyRobot(commands2.TimedCommandRobot):
         self.rightTalon2 = self.container.rightTalon2
         
         self.drive = self.container.drive
-        self.sd.putBoolean("team",  True)
-        #~ LED commands and variables
-        self.LEDserver = wpilib.I2C(wpilib.I2C.Port.kMXP, 100)
-        self.previousLEDCommand = 0
-        self.team = ntcore.NetworkTableInstance.getDefault().getTable("FMSinfo").getBoolean("isRedAlliance", True)# self.sd.getBoolean("team", True) #^ change this to blue if we are on the blue team
-
+        
     def disabledInit(self) -> None:
         """This function is called once each time the robot enters Disabled mode."""
 
