@@ -111,7 +111,6 @@ class RobotContainer:
         self.shuffle.putData("dropOffExtend", self.dropOffExtend)
         self.shuffle.putData("dropObject", self.dropObject)
 
-        self.camera = photonvision.PhotonCamera("Microsoft_LifeCam_HD-3000")
     def getAutonomousCommand(self) -> commands2.Command:
         return self.chooser.getSelected()
         # return self.coneToBalance
